@@ -9,19 +9,14 @@ class LoginsController extends CmpAppController {
 
 	public function index() {
 		if (!$this->User->find('count')) {
-			$this->Redirect->flash('setup_root', array(
-				'controller' => 'users',
-				'action' => 'setup'
-			));
+			// Redirect to setup
 		}
 
 		if ($this->data) {
 			if (Authsome::login($this->data['User'])) {
-				$this->Redirect->flash('logged_in', array(
-					'controller' => 'dashboards',
-					'action' => 'index'
-				));
+				// Redirect to dashboard or last accessed page
 			} else {
+				// Try to enter your password again
 				$this->Redirect->flash('bad_user_pass');
 			}
 		}

@@ -9,7 +9,6 @@
 			echo $this->Html->css('/cmp/css/core/layout', 'stylesheet', array('media' => 'screen, projector'));
 			echo $this->Html->css('/cmp/css/core/icons', 'stylesheet', array('media' => 'screen, projector'));
 			echo $this->Html->css('/cmp/css/core/print', 'stylesheet', array('media' => 'print'));
-			echo $this->Html->css('/cmp/css/files/upload', 'stylesheet', array('media' => 'screen, projector'));
 		?>
 		<!--[if lte IE 7]>
 			<?php echo $this->Html->css('/cmp/css/core/ie', 'stylesheet', array('media' => 'screen, projector')); ?>

@@ -1,0 +1,35 @@
+#navigation ul li a:hover {background:#fff;padding:0;}
+#header {padding:18px 20px 17px;}
+#header_left {
+    float:left;
+    position:relative;
+    line-height:1.2;
+    left:0;
+    bottom:0;
+}
+#header_right {
+    float:left;
+    text-align:right;
+    height:56px;
+    width:auto;
+}
+#navigation {
+	width:19.9%;
+	overflow:hidden;
+}
+#navigation .category h4 {
+    margin:0;padding:20px;
+}
+    #navigation ul li a,
+    #navigation ul li.fake_nav {
+		width:auto;
+		padding:5px 20px;
+		background:none;
+    }
+    #navigation ul li a:hover,
+    #navigation ul li a.hover {
+		background:#fff;padding:5px 20px;width:auto;
+    }
+.iIcon {display:block;float:left;}
+.clearfix {zoom: 1;display: block;}
+.checkbox_list .checkbox {zoom: 1;display: block;}

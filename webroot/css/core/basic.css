@@ -1,0 +1,138 @@
+/* Reset */
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, code, del, dfn, em, img, q, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {margin:0;padding:0;border:0;font-weight:inherit;font-style:inherit;font-size:100%;font-family:inherit;vertical-align:baseline;}
+body {line-height:1.4;}
+table {border-collapse:separate;border-spacing:0;}
+caption, th, td {text-align:left;font-weight:normal;}
+table, td, th {vertical-align:middle;}
+blockquote:before, blockquote:after, q:before, q:after {content:"";}
+blockquote, q {quotes:"" "";}
+a img {border:none;}
+
+/* Basics */
+html {margin:0;padding:0;}
+body {
+    margin:0;padding:0;
+    color:#262626;background:#fff;
+    width:100%;
+    font: 14px/1.4 Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+}
+
+/* GENERAL BODY ELEMENTS */
+p,dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address{margin-bottom:1.4em}
+hr{border:0 #ccc solid;border-top-width:1px;clear:both;height:0}
+li{margin-left:1.5em}
+small{font-size:0.8em;}
+i, em{font-style:italic;color:#666;}
+
+/* FORMS */
+label, .fake_label {cursor:pointer;font-weight:bold;display:block;margin:0 0 5px 10px;}
+fieldset{width:100%;padding:0.7em 0 0;color:#666666;border-top:1px solid #E5E5E5;}
+legend{padding:0 10px 0 0;margin:0;font-size:1.4em;font-weight:bold;color:#666666;}
+legend em{color:#ccc;text-align:right;}
+fieldset p{padding:0;margin:0 0 5px;display:block;}
+textarea {width:68%;padding:1%;background:#fff url(img/bg_gradient.png) repeat-x 0 -8px;border:1px solid #E5E5E5;-moz-border-radius: 3px;-webkit-border-radius: 3px;}
+select {background:#fff;padding:3px;border:1px solid #E5E5E5;-moz-border-radius: 3px;-webkit-border-radius: 3px;}
+select {min-width:40%;}
+.note {font-size:0.8em;padding:10px 10px 0;line-height:0;}
+.input {margin:0 0 20px;color:#262626;}
+.input.checkbox {border:none;}
+.input input {width:50%;color:#666;padding:5px 7px;background:#fff url(img/bg_gradient.png) repeat-x 0 -8px;border:1px solid #E5E5E5;-moz-border-radius: 3px;-webkit-border-radius: 3px;}
+.checkbox input, .radio input {width:auto;cursor:pointer;}
+.input.checkbox label, .input.radio label{float:left;font-weight:normal;}
+.input.checkbox input, .input.radio input {float:right;width:auto;padding:0;-moz-border-radius: 0;-webkit-border-radius: 0;}
+select:focus, select:hover,
+textarea:focus, textarea:hover,
+input:focus, input:hover {
+    color:#000;border:1px solid #666;outline:0;
+}
+.submit {margin:20px 0 0;padding:20px 0 0;}
+.submit .go {float:left;margin:0;padding:0;}
+.submit .cancel {float:right;margin:0;padding:0;}
+.submit .go input {font-weight:bold;line-height:1;display:block;pointer:pointer;margin:0;padding:7px 8px 8px;border:3px solid #E6EFC2;-moz-border-radius: 3px;-webkit-border-radius: 3px;background:#E6EFC2;color:#264409;}
+.submit .go input:hover {cursor:pointer;border-color:#C6D880;}
+.submit .cancel a {font-weight:bold;line-height:1;display:block;pointer:pointer;margin:0;padding:8px;border:3px solid #FBE3E4;-moz-border-radius: 3px;-webkit-border-radius: 3px;background:#FBE3E4;color:#8a1f11;}
+.submit .cancel a:hover {cursor:pointer;border-color:#FBC2C4;}
+
+/* TABLES */
+table.index {width:100%;background:#e5e5e5;-moz-border-radius: 3px;-webkit-border-radius: 3px;padding:3px;}
+table.index thead {background:#e5e5e5;}
+table.index th, table td {padding:5px 10px;}
+table.index th.actions, table td.actions {border-left:1px solid #e5e5e5;text-align:center;padding:5px 0 5px 12px;}
+table.index td img {padding:5px 5px 1px;}
+table.index thead th {font-weight:bold;}
+table.index tbody {background:#fafafa;}
+
+table td, table th {
+	padding:5px;
+}
+
+/* HEADINGS */
+h1,h2,h3,h4,h5,h6,h1 a,h2 a,h3 a,h4 a,h5 a,h6 a, legend{font-family: Garamond, Georgia, "URW Palladio L", Palatino, Baskerville, serif;line-height:1;font-weight:normal;}
+h1,h2,h3,h4,h5,h6,b,strong{color:#262626;}
+h3,h4,h5,h6{color:#666;}
+h1{font-size:1.7em;margin-bottom:0.6em;}
+h2{font-size:1.6em;margin-bottom:0.7em;}
+h3{font-size:1.5em;margin-bottom:0.8em;}
+h4{font-size:1.4em;margin-bottom:0.9em;}
+h5{font-size:1.3em;margin-bottom:1em;}
+h6{font-size:1.2em;margin-bottom:1.1em;}
+
+/* LINKS */
+a:focus{outline:1px dotted invert;}
+a{color:#00a8e6;font-family:Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;text-decoration:none;}
+a:hover, a.hover{color:#ee00ff;}
+.block {margin:0 0 1.5em;}
+.block a {padding:8px;background:#fff;border:1px solid #E5E5E5;-moz-border-radius: 3px;-webkit-border-radius: 3px;}
+.form a {display:block;margin:10px 20px 15px;padding:0;}
+
+dl {padding:0 0 1.5em;margin:0;}
+dl dt {font-weight:bold;}
+dl dd {padding:0 0 0 1.5em;}
+
+/* USEFUL CLASSES */
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.clear {clear:both;}
+.corners {
+	-moz-border-radius: 0.4em;
+	-webkit-border-radius: 0.4em;
+}
+.no_pad{padding:0;}
+.no_mar{margin:0;}
+.pad {display:block;padding:1.5em;}
+.mar {display:block;margin:1.5em;}
+
+.float_left {float:left;}
+.float_right {float:right;}
+
+.sort_link:hover {color:#688700}
+.asc {color:#688700;}
+.asc:hover {color:#D10000;}
+.desc {color:#D10000;}
+.desc:hover {color:#688700;}
+
+#flashMessage.error, #flashMessage.notice, #flashMessage.success {padding:20px 40px 20px 60px;margin:0 20px 20px 0;border:2px solid #ddd;-moz-border-radius: 3px;-webkit-border-radius: 3px;}
+#flashMessage.error {background:#FBE3E4 url(img/fam/exclamation.png) 26px center no-repeat;color:#8a1f11;border-color:#FBC2C4;}
+#flashMessage.notice {background:#FFF6BF url(img/fam/error.png) 26px center no-repeat;color:#514721;border-color:#FFD324;}
+#flashMessage.success {background:#E6EFC2 url(img/fam/accept.png) 26px center no-repeat;color:#264409;border-color:#C6D880;}
+#flashMessage.error a {color:#8a1f11;}
+#flashMessage.notice a {color:#514721;}
+#flashMessage.success a {color:#264409;}
+
+.input.error{background:#FBE3E4;color:#8a1f11;padding:10px;}
+.error-message{display:block;margin:5px 0 0 10px;}
+
+.success_row.even_row {background:#E6EFC2;}
+.success_row.odd_row {background:#E2F0AA;}
+.notice_row.even_row {background:#FFF6BF;}
+.notice_row.odd_row {background:#FFF3A6;}
+.error_row.even_row {background:#FBE3E4;}
+.error_row.odd_row {background:#FBC2C4;}
+
+.odd_row {background:#fff}
+.even_row {background:#fafafa}

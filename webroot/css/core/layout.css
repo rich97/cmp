@@ -1,0 +1,68 @@
+html, body {height: 100%;}
+#header {
+    margin:0;padding:20px;
+    position:relative;
+    background:#262626 url(img/header_bg.png) repeat-x bottom left;
+    border-bottom:#fff 1px solid;
+    color:#FAFAFA;
+}
+    #header a {color:#00A8E6}
+    #header a:hover {color:#FAFAFA}
+    #header h1 {
+		margin:0;padding:0;
+		font-size:3em;
+		color:#FAFAFA;
+    }
+    #header h1 a {color:#FAFAFA;}
+    #header h1 a:hover {color:#00A8E6;}
+
+#navigation {
+    width:20%;overflow:hidden;
+    float:left;
+    margin:0;padding:20px 0 0;
+}
+
+#body {
+    background:transparent url(img/bg_gradient.png) repeat-x top left;
+}
+
+#content {
+    width:80%;
+    float:left;
+    margin:20px 0 0;
+    position:relative;
+    z-index:10;
+}
+
+#wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -52px;
+    position:relative;
+}
+
+#footer, #push_footer {
+    height:52px;
+}
+
+#footer_shadow {
+    position:absolute;
+    z-index:5;
+    bottom:53px;
+    left:0;
+    height:20px;
+    width:100%;
+    background:transparent url(img/bg_gradient_flipped.png) bottom left repeat-x;
+}
+
+#footer {
+    font-size:12px;line-height:1;
+    overflow:hidden;
+    clear:both;
+    background:#262626 url(img/header_bg.png) repeat-x bottom left;
+    color:#FAFAFA;
+}
+    #footer p {
+		margin:0;padding:20px;
+    }

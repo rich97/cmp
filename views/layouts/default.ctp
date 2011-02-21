@@ -3,17 +3,6 @@
     <head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 		<title><?php echo $title_for_layout; ?></title>
-		<?php
-			echo $this->Html->css('/cmp/css/core/basic', 'stylesheet', array('media' => 'screen, projector'));
-			echo $this->Html->css('/cmp/css/core/design', 'stylesheet', array('media' => 'screen, projector'));
-			echo $this->Html->css('/cmp/css/core/layout', 'stylesheet', array('media' => 'screen, projector'));
-			echo $this->Html->css('/cmp/css/core/icons', 'stylesheet', array('media' => 'screen, projector'));
-			echo $this->Html->css('/cmp/css/core/print', 'stylesheet', array('media' => 'print'));
-			echo $this->Html->css('/cmp/css/files/upload', 'stylesheet', array('media' => 'screen, projector'));
-		?>
-		<!--[if lte IE 7]>
-			<?php echo $this->Html->css('/cmp/css/core/ie', 'stylesheet', array('media' => 'screen, projector')); ?>
-		<![endif]-->
     </head>
 
     <body>
@@ -45,14 +34,7 @@
 
 	<?php echo $this->element('footer'); ?>
 
-	<?php
-	    echo $this->Html->script('/cmp/js/core/jquery');
-	    echo $this->Html->script('/cmp/js/core/table_sort/tablednd');
-	    echo $this->Html->script('/cmp/js/core/table_sort/tablednd_init');
-	    echo $this->Html->script('/cmp/js/core/index_tables');
-	    echo $this->Html->script('/cmp/js/core/forms');
-	    echo $scripts_for_layout;
-	?>
+	<?php echo $scripts_for_layout; ?>
 
     </body>
 </html>

@@ -11,7 +11,7 @@ class UsersController extends CmpAppController {
 	}
 
 	public function view($id = null) {
-		$this->User->findById($id);
+		$this->set('user', $this->User->findById($id));
 	}
 
 	public function add() {
@@ -26,7 +26,7 @@ class UsersController extends CmpAppController {
 		$this->save();
 
 		if(!$this->data = $this->User->findById($id)) {
-			// No data
+			$this->Redirect->flash('no_data', array('action' => 'index'));
 		}
 	}
 
@@ -38,21 +38,23 @@ class UsersController extends CmpAppController {
     public function delete($id = null) {
 		if(!$data = $this->User->findById($id)) {
 			if ($this->User->delete($data['User']['id'])) {
-				// Done!
+				$this->Redirect->flash('delete_ok', array('action' => 'index'));
 			}
 		}
 	}
 
 	private function save() {
 		if ($this->data) {
+			$flash = 'add_ok';
 			if (!empty($this->data['User']['id'])) {
+				$flash = 'edit_ok';
 				$this->User->create();
 			}
 
 			if ($this->User->save($this->data)) {
-				// Done!
+				$this->Redirect->flash($flash, array('action' => 'index'));
 			}
-			// Errors ...
+			$this->Redirect->flash('input_errors');
 		}
 	}
 

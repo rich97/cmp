@@ -78,7 +78,18 @@ class User extends CmpAppModel {
 		return true;
 	}
 
-    public function passwordReset() {
+    protected function password($length = 8) {
+		$password = '';
+		$characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+		for ($p = 0; $p < $length; $p++) {
+			$string .= $characters[mt_rand(0, strlen($characters) - 1)];
+		}
+
+		$this->data['User']['password'] = Authsome::hash($password);
+		return $password;
+    }
+
+    public function passwordChange() {
 		$this->validate = array_merge(
 			$this->validate,
 			$this->validatePasswordReset
@@ -95,7 +106,7 @@ class User extends CmpAppModel {
 		));
     }
 
-    public function confirmPasswordMatch () {
+    public function confirmPasswordMatch() {
 		$user = $this->data['User'];
 		if($user['new_password'] === $user['confirm_new_password']) {
 			return true;

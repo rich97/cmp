@@ -51,15 +51,6 @@ class CmpAppController extends AppController {
 		return $this->Email->send();
     }
 
-    protected function random($length = 8) {
-		$string = '';
-		$characters = '0123456789abcdefghijklmnopqrstuvwxyz';
-		for ($p = 0; $p < $length; $p++) {
-			$string .= $characters[mt_rand(0, strlen($characters) - 1)];
-		}
-		return $string;
-    }
-
 	private function crumbs() {
 		if ($this->action !== 'index') {
 			$crumbs = array(

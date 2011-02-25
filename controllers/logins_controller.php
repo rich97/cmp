@@ -9,14 +9,16 @@ class LoginsController extends CmpAppController {
 
 	public function index() {
 		if (!$this->User->find('count')) {
-			// Redirect to setup
+			$this->Redirect->flash('setup_root', array(
+				'controller' => 'users',
+				'action' => 'setup'
+			);
 		}
 
 		if ($this->data) {
 			if (Authsome::login($this->data['User'])) {
-				// Redirect to dashboard or last accessed page
+				$this->Redirect->flash('logged_in', array('controller' => 'dashboards', 'action' => 'index'));
 			} else {
-				// Try to enter your password again
 				$this->Redirect->flash('bad_user_pass');
 			}
 		}
@@ -24,10 +26,7 @@ class LoginsController extends CmpAppController {
 
 	public function logout() {
 		Authsome::logout();
-		$this->Redirect->flash('logged_out', array(
-			'controller' => 'dashboards',
-			'action' => 'index'
-		));
+		$this->Redirect->flash('logged_out', array('controller' => 'dashboards', 'action' => 'index'));
 	}
 
 }

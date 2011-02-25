@@ -43,6 +43,13 @@ class UsersController extends CmpAppController {
 		}
 	}
 
+	private function password() {
+		$this->data['User']['password'] = $this->random();
+
+		$subject = "You have been registered on the ";
+		$this->mail($data['User']['email'], $subject, "users/send_password", $data);
+	}
+
 	private function save() {
 		if ($this->data) {
 			$flash = 'add_ok';

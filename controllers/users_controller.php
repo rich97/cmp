@@ -1,4 +1,4 @@
-<?php
+av?php
 class UsersController extends CmpAppController {
 
 	public $uses = array('Cmp.User');
@@ -45,12 +45,12 @@ class UsersController extends CmpAppController {
 
 	private function save() {
 		if ($this->data) {
-			$flash = 'add_ok';
+			$flash = 'edit_ok';
 			$password = $this->User->password();
 
 			if ($this->User->save($this->data)) {
-				if (!empty($this->data['User']['id'])) {
-					$flash = 'edit_ok';
+				if (empty($this->data['User']['id'])) {
+					$flash = 'add_ok';
 					$this->mail($this->data['User']['id'], 'Change Me!', 'users/send_password', $this->data);
 				}
 				$this->Redirect->flash($flash, array('action' => 'index'));

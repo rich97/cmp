@@ -33,15 +33,10 @@ class CmpAppController extends AppController {
 			}
 		}
 
-		if (!$this->title) {
-			$this->title = $this->name;
-		}
-
-		$this->set('breadcrumbs', $this->__generateCrumbs());
-		$this->set('title_for_layout', "Aomori CMS &ndash; {$this->title}");
+		$this->set('breadcrumbs', $this->crumbs());
 	}
 
-    protected function _sendmail($to, $subject, $template, $vars = array(), $send_as = 'both') {
+    protected function mail($to, $subject, $template, $vars = array(), $send_as = 'both') {
 		$this->Email->to = $to;
 		$this->Email->subject = $subject;
 		$this->Email->replyTo = 'aomori@aca.or.jp';
@@ -56,7 +51,7 @@ class CmpAppController extends AppController {
 		return $this->Email->send();
     }
 
-    protected function _randomString($length = 8) {
+    protected function random($length = 8) {
 		$string = '';
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyz';
 		for ($p = 0; $p < $length; $p++) {
@@ -65,7 +60,7 @@ class CmpAppController extends AppController {
 		return $string;
     }
 
-	private function __generateCrumbs() {
+	private function crumbs() {
 		if ($this->action !== 'index') {
 			$crumbs = array(
 				$this->title => array(

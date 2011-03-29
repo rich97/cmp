@@ -1,54 +1,46 @@
 <?php
 class User extends CmpAppModel {
 
+	public $password = '';
+
     public $validate = array(
 		'username' => array(
 			'format' => array(
-				'rule' => array(
-					'custom', '/^[A-z0-9_-]{1,}$/'
-				),
-				'message' => 'Bad username. Use only letters, numbers, hyphen (-) and the underscore (_).'
+				'rule' => array('custom', '/^[A-z0-9_-]{1,}$/'),
+				'message' => 'Use only letters, numbers, hyphen and the underscore.'
 			),
 			'length' => array(
-				'rule' => array(
-					'minLength', '4'
-				),
+				'rule' => array('minLength', '4'),
 				'message' => 'Enter a minimum of 4 characters.'
 			),
 			'unique' => array(
-				'rule' => array(
-					'isUnique'
-				),
-				'message' => 'This username is already registered.'
+				'rule' => array('isUnique'),
+				'message' => 'This username is already in use.'
 			)
 		),
 		'email' => array(
-			'email' => array(
-				'rule' => array(
-					'email'
-				),
+			'format' => array(
+				'rule' => array('email'),
 				'message' => 'Enter a valid email address.'
+			),
+			'unique' => array(
+				'rule' => array('isUnique'),
+				'message' => 'This username is already in use.'
 			)
 		)
     );
     
     public $validatePasswordReset = array(
 		'current_password' => array(
-			'rule' => array(
-				'isCorrectPassword'
-			),
-			'message' => 'Bad password, if you have lost your password then you can contact an administrator to reset it.'
+			'rule' => array('isCorrectPassword'),
+			'message' => 'Incorrect Password'
 		),
 		'new_password' => array(
-			'rule' => array(
-				'minLength', '6'
-			),
+			'rule' => array('minLength', '6'),
 			'message' => 'Password should be at least 6 characters long.'
 		),
 		'confirm_new_password' => array(
-			'rule' => array(
-				'confirmPasswordMatch'
-			),
+			'rule' => array('confirmPasswordMatch'),
 			'message' => '"New password" and "Confirm new password" do not match.'
 		)
     );
@@ -70,23 +62,18 @@ class User extends CmpAppModel {
         return $this->find('first', compact('conditions'));
     }
 
-    public function beforeSave() {
-		$password = $this->data['User']['password'];
-		if (!empty($password)) {
-			$this->data['User']['password'] = Authsome::hash($password);
-		}
+	public function beforeSave() {
+		$this->password();
 		return true;
 	}
 
     protected function password($length = 8) {
-		$password = '';
 		$characters = '0123456789abcdefghijklmnopqrstuvwxyz';
 		for ($p = 0; $p < $length; $p++) {
-			$string .= $characters[mt_rand(0, strlen($characters) - 1)];
+				$this->password .= $characters[mt_rand(0, strlen($characters) - 1)];
 		}
 
-		$this->data['User']['password'] = Authsome::hash($password);
-		return $password;
+		$this->data['User']['password'] = Authsome::hash($this->password);
     }
 
     public function passwordChange() {

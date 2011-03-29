@@ -1,4 +1,4 @@
-av?php
+<?php
 class UsersController extends CmpAppController {
 
 	public $uses = array('Cmp.User');
@@ -7,7 +7,7 @@ class UsersController extends CmpAppController {
 
 	public function index() {
 		$this->pagination = $this->Pagination->set();
-		$this->set('data', $this->User->find('all'));
+		$this->set('data', $this->paginate('User'));
 	}
 
 	public function view($id = null) {
@@ -16,6 +16,7 @@ class UsersController extends CmpAppController {
 
 	public function add() {
 		$this->save();
+		$this->render('edit');
 	}
 
 	public function setup() {
@@ -46,14 +47,17 @@ class UsersController extends CmpAppController {
 	private function save() {
 		if ($this->data) {
 			$flash = 'edit_ok';
-			$password = $this->User->password();
+			if (empty($this->data['User']['id'])) {
+				$flash = 'add_ok';
+				$this->User->create();
+			}
 
 			if ($this->User->save($this->data)) {
-				if (empty($this->data['User']['id'])) {
-					$flash = 'add_ok';
-					$this->mail($this->data['User']['id'], 'Change Me!', 'users/send_password', $this->data);
+				if (!empty($this->User->password)) {
+					$subject = 'You have been registered on CMS.';
+					$this->mail($this->User->password, $subject, 'users/send_password', $this->User->data);
 				}
-				$this->Redirect->flash($flash, array('action' => 'index'));
+				$this->Redirect->flash($this->User->password, array('action' => 'index'));
 			}
 			$this->Redirect->flash('input_errors');
 		}

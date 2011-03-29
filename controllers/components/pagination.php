@@ -12,7 +12,7 @@ class PaginationComponent extends Object {
 	public function set() {
 		$hard = (array) $this->cont->paginate;
 		$session = (array) $this->Session->read("pagination.{$this->cont->name}");
-		$named = (array) array_merge($this->cont->params['pass'], $this->cont->params['named']);
+		$named = array_merge($this->cont->params['pass'], $this->cont->params['named']);
 
 		$this->Session->delete('pagination');
 		if (!empty($named['sort'])) {
@@ -22,7 +22,7 @@ class PaginationComponent extends Object {
 			}
 		}
 
-		$pagination = array_merge($hard, $session, $named)	
+		$pagination = array_merge($hard, $session, $named);
 		$this->Session->write("pagination.{$this->cont->name}", $pagination);
 		return $pagination;
 	}

@@ -1,10 +1,6 @@
 <ul class="toolbar clearfix">
-    <li class="first"><?php echo $this->Html->link(__('Add', true), array('action' => 'add'), array('class' => 'iBlock_text fam_add')); ?></li>
-    <li><?php echo $this->Html->link(__('Delete Selected', true), array('action' => 'delete'), array('class' => 'iBlock_text fam_delete', 'id' => 'delete_button', 'rel' => __('Are you sure you want to delete the selected records?', true))); ?></li>
+    <li><?php echo $this->Html->link(__('Add', true), array('action' => 'add')); ?></li>
 </ul>
-<?php echo $this->element('search'); ?>
-
-<?php echo $this->Form->create('User', array('action' => 'delete', 'id' => 'delete_form')); ?>
 
 <h2><?php echo 'Users'; ?></h2>
 
@@ -45,4 +41,3 @@
 </table>
 
 <?php echo $this->element('pagination'); ?>
-<?php echo $this->Form->end(); ?>

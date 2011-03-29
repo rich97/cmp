@@ -7,34 +7,17 @@
 
     <body>
 
-	<div id="wrapper">
+	    <?php
+		echo $this->element('header');
+		echo $this->Session->flash();
 
-	    <?php echo $this->element('header'); ?>
-
-	    <div id="body" class="clearfix">
-
-		<?php echo $this->element('navigation'); ?>
-
-		<div id="content">
-		    <?php
-				echo $this->Session->flash();
-				if(Authsome::get('User.id')) {
-					echo $this->element('breadcrumbs');
-				}
-				echo $content_for_layout;
-		    ?>
-		</div>
-
-	    </div>
-
-	    <div id="footer_shadow"></div>
-	    <div id="push_footer"></div>
-
-	</div>
-
-	<?php echo $this->element('footer'); ?>
-
-	<?php echo $scripts_for_layout; ?>
+		if(Authsome::get('User.id')) {
+			echo $this->element('breadcrumbs');
+		}
+		
+		echo $content_for_layout;
+		echo $scripts_for_layout;
+		?>
 
     </body>
 </html>

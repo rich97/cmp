@@ -1,7 +1,9 @@
-<div id="footer">
-    <p>
-		&copy;<?php echo date('Y'); ?> Richard Vanbergen of <?php echo $this->Html->link('Kaizen Creative', 'http://kaizen-creative.com'); ?>
-		&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-		Powered by <?php echo $this->Html->link('CakePHP', 'http://cakephp.org') ?> a most spectacular PHP framework
-    </p>
-</div>
+<p>
+	<?php
+	__(sprintf('&copy%s %s &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; Powered by %s a most spectacular PHP framework.',
+		date('Y'),
+		$this->Html->link('enrich.it', 'http://enrich.it')
+		$this->Html->link('CakePHP', 'http://cakephp.org')
+	));
+	?>
+</p>

@@ -9,10 +9,7 @@ class LoginsController extends CmpAppController {
 
 	public function index() {
 		if (!$this->User->find('count')) {
-			$this->Redirect->flash('setup_root', array(
-				'controller' => 'users',
-				'action' => 'setup'
-			);
+			$this->Redirect->flash('setup_root', array('controller' => 'users', 'action' => 'setup'));
 		}
 
 		if ($this->data) {
